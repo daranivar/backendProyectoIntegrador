@@ -19,9 +19,11 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String password = passwordEncoder.encode("password");
-        String password2 = passwordEncoder.encode("password2");
+        BCryptPasswordEncoder passwordEncoder1 = new BCryptPasswordEncoder();
+        String password = passwordEncoder1.encode("password");
+
+        BCryptPasswordEncoder passwordEncoder2 = new BCryptPasswordEncoder();
+        String password2 = passwordEncoder2.encode("password2");
 
         userRepository.save(new AppUser("Charly", "charly", "charly@dh.com", password, AppUsuarioRoles.ADMIN));
         userRepository.save(new AppUser("Charly2", "charly2", "charly2@dh.com", password2, AppUsuarioRoles.USER));

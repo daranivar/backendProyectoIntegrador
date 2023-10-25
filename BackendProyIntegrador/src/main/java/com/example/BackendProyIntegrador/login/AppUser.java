@@ -33,10 +33,6 @@ public class AppUser implements UserDetails {
         this.appUsuarioRoles = appUsuarioRoles;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -62,7 +58,15 @@ public class AppUser implements UserDetails {
         SimpleGrantedAuthority grantedAuthority = new SimpleGrantedAuthority(appUsuarioRoles.name());
         return Collections.singletonList(grantedAuthority);
     }
+    @Override
+    public String getUsername() {
+        return email;
+    }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
     public Long getId() {
         return id;
@@ -76,8 +80,8 @@ public class AppUser implements UserDetails {
         this.nombre = nombre;
     }
 
-    public String getUsername() {
-        return username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -86,10 +90,6 @@ public class AppUser implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
