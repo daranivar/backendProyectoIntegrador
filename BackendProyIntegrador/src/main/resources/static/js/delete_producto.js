@@ -1,6 +1,6 @@
 function deleteBy(id)
 {
-           //con fetch invocamos a la API de odontologo con el método DELETE
+           //con fetch invocamos a la API de productos con el método DELETE
            //pasandole el id en la URL
           const url = '/productos/borrar/'+ id;
           const settings = {
@@ -9,7 +9,7 @@ function deleteBy(id)
           fetch(url,settings)
           .then(response => response.json())
 
-          //borrar la fila del odontologo eliminado
+          //borrar la fila del producto eliminado
           let row_id = "#tr_" + id;
           document.querySelector(row_id).remove();
 

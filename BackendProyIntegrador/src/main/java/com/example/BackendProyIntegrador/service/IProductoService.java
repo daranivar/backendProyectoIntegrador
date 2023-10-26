@@ -2,6 +2,7 @@ package com.example.BackendProyIntegrador.service;
 
 import com.example.BackendProyIntegrador.dto.ProductoDTO;
 
+import java.io.InputStream;
 import java.util.List;
 
 public interface IProductoService {
@@ -15,5 +16,7 @@ public interface IProductoService {
     void eliminar (Long id);
 
     void actualizar (ProductoDTO producto);
+
+
 
 }

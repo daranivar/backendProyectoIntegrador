@@ -5,15 +5,23 @@ import com.example.BackendProyIntegrador.entity.Producto;
 import com.example.BackendProyIntegrador.repository.IProductoRepository;
 import com.example.BackendProyIntegrador.service.IProductoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ProductoService implements IProductoService {
+
 
     @Autowired
     IProductoRepository iProductoRepository;
@@ -43,7 +51,7 @@ public class ProductoService implements IProductoService {
         if(found.isPresent())
             return mapper.convertValue(found, ProductoDTO.class);
         else
-            throw new Exception("El odontologo no existe");
+            throw new Exception("El producto no existe");
     }
 
     @Override
@@ -55,4 +63,8 @@ public class ProductoService implements IProductoService {
     public void actualizar(ProductoDTO producto) {
         guardar(producto);
     }
+
+
+
 }
+
