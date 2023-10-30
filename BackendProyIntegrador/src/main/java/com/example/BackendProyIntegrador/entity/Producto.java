@@ -4,6 +4,7 @@ package com.example.BackendProyIntegrador.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="productos")
@@ -19,20 +20,25 @@ public class Producto {
 
     private String imagen;
 
+
+    @OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)
+    //@JsonIgnore
+    private List<Image> image;
+
     public Producto() {
     }
 
-    public Producto(Long id, String nombre, String descripcion, String imagen) {
+    public Producto(Long id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.imagen = imagen;
+
     }
 
-    public Producto(String nombre, String descripcion, String imagen) {
+    public Producto(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.imagen = imagen;
+
     }
 
     public Long getId() {
@@ -66,5 +72,4 @@ public class Producto {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-
 }

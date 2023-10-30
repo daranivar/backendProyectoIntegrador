@@ -10,7 +10,8 @@ window.addEventListener('load', function () {
         //creamos un JSON que tendrá los datos del nuevo productos
         const formData = {
             nombre: document.querySelector('#nombre').value,
-            descripcion: document.querySelector('#descripcion').value
+            descripcion: document.querySelector('#descripcion').value,
+            imagen:document.querySelector('#imagen').value
 
         };
 
@@ -56,6 +57,7 @@ window.addEventListener('load', function () {
     function resetUploadForm(){
         document.querySelector('#nombre').value = "";
         document.querySelector('#descripcion').value = "";
+        document.querySelector('#imagen').value = "";
 
     }
 

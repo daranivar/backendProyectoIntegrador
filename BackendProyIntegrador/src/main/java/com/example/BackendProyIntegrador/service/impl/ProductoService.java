@@ -1,5 +1,6 @@
 package com.example.BackendProyIntegrador.service.impl;
 
+
 import com.example.BackendProyIntegrador.dto.ProductoDTO;
 import com.example.BackendProyIntegrador.entity.Producto;
 import com.example.BackendProyIntegrador.repository.IProductoRepository;
@@ -8,7 +9,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -33,6 +36,8 @@ public class ProductoService implements IProductoService {
     public void guardar(ProductoDTO producto) {
         Producto productoNuevo = mapper.convertValue(producto, Producto.class);
         iProductoRepository.save(productoNuevo);
+
+
     }
 
     @Override
@@ -63,6 +68,10 @@ public class ProductoService implements IProductoService {
     public void actualizar(ProductoDTO producto) {
         guardar(producto);
     }
+
+
+
+
 
 
 
