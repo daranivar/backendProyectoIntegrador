@@ -1,10 +1,7 @@
 package com.example.BackendProyIntegrador.service;
 
-import com.example.BackendProyIntegrador.dto.ProductoDTO;
-import org.springframework.web.multipart.MultipartFile;
+import com.example.BackendProyIntegrador.config.dto.ProductoDTO;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 public interface IProductoService {

@@ -1,8 +1,8 @@
-package com.example.BackendProyIntegrador.service;
+package com.example.BackendProyIntegrador.service.impl;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.example.BackendProyIntegrador.service.impl.IAWS3Service;
+import com.example.BackendProyIntegrador.service.IAWS3Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +39,7 @@ public class AWSService implements IAWS3Service {
             LOGGER.error(e.getMessage(), e);
         }
     }
+
+
+
 }

@@ -10,19 +10,19 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
 
     private Long id;
-    private String title;
+
     private String url;
 
     @ManyToOne
-    @JoinColumn(name = "producto_id", referencedColumnName = "id")
+    @JoinColumn(name = "productos_id", referencedColumnName = "id")
     private Producto producto;
 
     public Image() {
     }
 
-    public Image(Long id, String title, String url) {
+    public Image(Long id, String url) {
         this.id = id;
-        this.title = title;
+
         this.url = url;
     }
 
@@ -32,14 +32,6 @@ public class Image {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getUrl() {

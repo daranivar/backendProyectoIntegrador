@@ -44,7 +44,7 @@ public class ImageService implements IImageService {
         Optional<Image> imageBdd = iImageRepository.findById(image.getId());
         boolean productoDidntChange = imageBdd.get().getProducto().equals(productoId);
 
-        imageBdd.get().setTitle(image.getTitle());
+        //imageBdd.get().setTitle(image.getTitle());
         imageBdd.get().setUrl(image.getUrl());
 
         return iImageRepository.save(imageBdd.get());

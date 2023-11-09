@@ -1,6 +1,5 @@
 package com.example.BackendProyIntegrador.repository;
 
-import com.example.BackendProyIntegrador.dto.ProductoDTO;
 import com.example.BackendProyIntegrador.entity.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,26 +1,17 @@
 package com.example.BackendProyIntegrador.service.impl;
 
 
-import com.example.BackendProyIntegrador.dto.ProductoDTO;
+import com.example.BackendProyIntegrador.config.dto.ProductoDTO;
 import com.example.BackendProyIntegrador.entity.Producto;
 import com.example.BackendProyIntegrador.repository.IProductoRepository;
 import com.example.BackendProyIntegrador.service.IProductoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class ProductoService implements IProductoService {

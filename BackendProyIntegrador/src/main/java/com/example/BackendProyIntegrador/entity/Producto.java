@@ -20,6 +20,10 @@ public class Producto {
 
     private String imagen;
 
+    @ManyToOne
+    @JoinColumn(name = "categorias_id")
+    private Categoria categoria;
+
 
     @OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)
     //@JsonIgnore

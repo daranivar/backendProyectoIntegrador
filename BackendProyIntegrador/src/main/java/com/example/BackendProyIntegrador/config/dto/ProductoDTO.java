@@ -1,4 +1,4 @@
-package com.example.BackendProyIntegrador.dto;
+package com.example.BackendProyIntegrador.config.dto;
 
 public class ProductoDTO {
 
@@ -8,18 +8,30 @@ public class ProductoDTO {
 
     private String descripcion;
 
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public ProductoDTO() {
     }
 
-    public ProductoDTO(String nombre, String descripcion) {
+    public ProductoDTO(String nombre, String descripcion, String imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.imagen = imagen;
     }
 
-    public ProductoDTO(Long id, String nombre, String descripcion) {
+    public ProductoDTO(Long id, String nombre, String descripcion, String imagen) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.imagen = imagen;
     }
 
     public Long getId() {
