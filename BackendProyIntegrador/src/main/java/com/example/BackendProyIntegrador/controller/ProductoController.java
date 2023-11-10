@@ -26,6 +26,9 @@ public class ProductoController {
     @Autowired
     private AmazonS3 amazonS3;
 
+    /*@Autowired
+    private Categoria categoria;*/
+
 
 
     @Autowired
@@ -80,7 +83,9 @@ public class ProductoController {
        // iImageRepository.save(image);
 
        producto.setImagen(fileUrl);
+
        productoService.guardar(producto);
+
 
 
        return new ResponseEntity<String>(response,HttpStatus.OK);
