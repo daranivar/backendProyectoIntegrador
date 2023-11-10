@@ -1,6 +1,6 @@
 package com.example.BackendProyIntegrador.service;
 
-import com.example.BackendProyIntegrador.config.dto.ProductoDTO;
+import com.example.BackendProyIntegrador.dto.ProductoDTO;
 
 import java.util.List;
 

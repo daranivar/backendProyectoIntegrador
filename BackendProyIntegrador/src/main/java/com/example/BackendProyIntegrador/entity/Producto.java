@@ -20,9 +20,9 @@ public class Producto {
 
     private String imagen;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "categorias_id")
-    private Categoria categoria;
+    private Categoria categoria;*/
 
 
     @OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)

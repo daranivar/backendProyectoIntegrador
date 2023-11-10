@@ -1,7 +1,7 @@
 package com.example.BackendProyIntegrador.controller;
 
 import com.amazonaws.services.s3.AmazonS3;
-import com.example.BackendProyIntegrador.config.dto.ProductoDTO;
+import com.example.BackendProyIntegrador.dto.ProductoDTO;
 import com.example.BackendProyIntegrador.repository.IImageRepository;
 import com.example.BackendProyIntegrador.service.impl.AWSService;
 import com.example.BackendProyIntegrador.service.IProductoService;

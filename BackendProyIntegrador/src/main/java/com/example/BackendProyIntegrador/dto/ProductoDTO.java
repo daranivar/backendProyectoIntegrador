@@ -1,4 +1,4 @@
-package com.example.BackendProyIntegrador.config.dto;
+package com.example.BackendProyIntegrador.dto;
 
 public class ProductoDTO {
 

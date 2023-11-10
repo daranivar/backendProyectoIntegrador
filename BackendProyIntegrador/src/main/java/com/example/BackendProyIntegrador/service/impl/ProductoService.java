@@ -1,7 +1,7 @@
 package com.example.BackendProyIntegrador.service.impl;
 
 
-import com.example.BackendProyIntegrador.config.dto.ProductoDTO;
+import com.example.BackendProyIntegrador.dto.ProductoDTO;
 import com.example.BackendProyIntegrador.entity.Producto;
 import com.example.BackendProyIntegrador.repository.IProductoRepository;
 import com.example.BackendProyIntegrador.service.IProductoService;
