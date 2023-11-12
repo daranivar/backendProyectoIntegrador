@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Subir imagen a S3 y guardar URL categorias en la base de datos </title>
+</head>
+<body>
+<form action="/categorias/upload" method="post" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label class="control-label" for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre"
+           placeholder="Ingrese el nombre" name="nombre" required></input>
+  </div>
+  <input type="file" name="file" />
+  <input type="submit" value="Subir imagen" />
+
+</form>
+</body>
+</html>
