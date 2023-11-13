@@ -21,14 +21,22 @@ public class Producto {
 
 
 
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "categorias_id")
-    private Categoria categoria;*/
+    private Categoria categoria;
 
 
-    @OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)
+
+
+    /*@OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)
     //@JsonIgnore
-    private List<Image> image;
+    private List<Image> image;*/
+
+    @ManyToMany(cascade={CascadeType.MERGE})
+    @JoinTable(name="producto_caracteristica", joinColumns=@JoinColumn(name="id_producto"),
+            inverseJoinColumns=@JoinColumn(name="id_caracteristica"))
+    private List <Caracteristica> attributes;
+
 
     public Producto() {
     }

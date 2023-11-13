@@ -56,7 +56,7 @@ public class CategoriaController {
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<?> actualizar(@RequestBody CategoriaDTO categoria){
+    public ResponseEntity<?> actualizar(CategoriaDTO categoria){
         categoriaService.actualizar(categoria);
         return ResponseEntity.ok(HttpStatus.OK);
     }

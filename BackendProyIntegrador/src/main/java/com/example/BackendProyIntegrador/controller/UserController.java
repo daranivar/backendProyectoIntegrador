@@ -7,6 +7,7 @@ import com.example.BackendProyIntegrador.login.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,10 @@ public class UserController {
     @PostMapping("/guardar")
     public ResponseEntity<?> guardar(AppUser appUser) {
         appUser.setAppUsuarioRoles(AppUsuarioRoles.USER);
+        userRepository.save(appUser);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String password = passwordEncoder.encode(appUser.getPassword());
+        appUser.setPassword(password);
         userRepository.save(appUser);
 
         return ResponseEntity.ok(HttpStatus.OK);
