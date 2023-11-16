@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/productos")
 public class ProductoController {
 
@@ -68,7 +69,7 @@ public class ProductoController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, ProductoDTO producto){
+    public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, @ModelAttribute ProductoDTO producto){
         //productoService.guardar(producto);
 
         awsService.uploadFile(file);

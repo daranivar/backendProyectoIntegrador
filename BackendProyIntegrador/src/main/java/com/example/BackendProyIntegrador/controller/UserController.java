@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+
 @RequestMapping("/registro")
 public class UserController {
 
@@ -22,7 +23,7 @@ public class UserController {
 
 
     @PostMapping("/guardar")
-    public ResponseEntity<?> guardar(AppUser appUser) {
+    public ResponseEntity<?> guardar(@RequestBody AppUser appUser) {
         appUser.setAppUsuarioRoles(AppUsuarioRoles.USER);
         userRepository.save(appUser);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
