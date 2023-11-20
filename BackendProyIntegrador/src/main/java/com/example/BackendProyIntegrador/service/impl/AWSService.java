@@ -31,7 +31,8 @@ public class AWSService implements IAWS3Service {
         File mainFile = new File(file.getOriginalFilename());
         try (FileOutputStream stream = new FileOutputStream(mainFile)){
             stream.write(file.getBytes());
-            String newFileName = System.currentTimeMillis() + "_" + mainFile.getName();
+            String newFileName = mainFile.getName();
+            //String newFileName = System.currentTimeMillis() + "_" + mainFile.getName();
             LOGGER.info("Subiendo archivo con el nombre" + newFileName);
             PutObjectRequest request = new PutObjectRequest(bucketName, newFileName, mainFile);
             amazonS3.putObject(request);

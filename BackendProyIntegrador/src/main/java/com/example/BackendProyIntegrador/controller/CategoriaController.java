@@ -63,7 +63,7 @@ public class CategoriaController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, CategoriaDTO categoria){
+    public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, @ModelAttribute CategoriaDTO categoria){
         awsService.uploadFile(file);
         String fileName = file.getOriginalFilename();
         String fileUrl = amazonS3.getUrl(bucketName,fileName).toString();

@@ -4,19 +4,23 @@ public class CategoriaDTO {
 
     private Long id;
     private String nombre;
+
+    private String descripcion;
     private String urlimagen;
 
     public CategoriaDTO() {
     }
 
-    public CategoriaDTO(String nombre, String urlimagen) {
+    public CategoriaDTO(String nombre, String descripcion, String urlimagen) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.urlimagen = urlimagen;
     }
 
-    public CategoriaDTO(Long id, String nombre, String urlimagen) {
+    public CategoriaDTO(Long id, String nombre, String descripcion, String urlimagen) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.urlimagen = urlimagen;
     }
 
@@ -34,6 +38,14 @@ public class CategoriaDTO {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getUrlimagen() {
