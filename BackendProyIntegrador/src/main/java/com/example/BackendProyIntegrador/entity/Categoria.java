@@ -5,12 +5,10 @@ import javax.persistence.*;
 @Entity
 @Table(name="categorias")
 public class Categoria {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-
+    @SequenceGenerator(name= "categorize_sequence", sequenceName = "categorize_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "categorize_sequence")
     private Long id;
-
     private String nombre;
     private String descripcion;
     private String urlimagen;

@@ -60,10 +60,21 @@ public class ProductoService implements IProductoService {
         guardar(producto);
     }
 
+    @Override
+    public ProductoDTO buscarProductoPorId(Long id) {
+        return iProductoRepository.buscarProductoPorId(id);
+    }
+
+    @Override
+    public List<ProductoDTO> buscarPorCategoria(String categoria) {
+        return iProductoRepository.buscarPorCategoria(categoria);
+    }
 
 
-
-
+    @Override
+    public List<ProductoDTO> listarProductosFinal() {
+        return iProductoRepository.listarProductosFinal();
+    }
 
 
 }

@@ -4,11 +4,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="caracteristicas")
-
 public class Caracteristica {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name= "caracteristica_secuencia", sequenceName = "caracteristica_secuencia")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "caracteristica_secuencia")
     private Long id;
     private String nombre;
     private String icono;

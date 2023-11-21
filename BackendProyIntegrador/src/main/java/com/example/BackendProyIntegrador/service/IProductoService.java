@@ -16,6 +16,11 @@ public interface IProductoService {
 
     void actualizar (ProductoDTO producto);
 
+    List<ProductoDTO> buscarPorCategoria(String categoria);
+
+    List<ProductoDTO> listarProductosFinal();
+
+    ProductoDTO buscarProductoPorId(Long id);
 
 
 }

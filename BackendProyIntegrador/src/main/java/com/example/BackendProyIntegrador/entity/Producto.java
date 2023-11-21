@@ -4,38 +4,35 @@ package com.example.BackendProyIntegrador.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="productos")
-
 public class Producto {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-
+    @SequenceGenerator(name= "producto_secuencia", sequenceName = "producto_secuencia")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "producto_secuencia")
     private Long id;
     private String nombre;
     private String descripcion;
     private String imagen;
 
-
-
     @ManyToOne(fetch = FetchType.EAGER)
     private Categoria categoria;
 
-
-
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Set<Caracteristica> caracteristicas = new HashSet<Caracteristica>();
 
     /*@OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)
     //@JsonIgnore
     private List<Image> image;*/
 
-    @ManyToMany(cascade={CascadeType.MERGE})
+    /*@ManyToMany(cascade={CascadeType.MERGE})
     @JoinTable(name="producto_caracteristica", joinColumns=@JoinColumn(name="id_producto"),
             inverseJoinColumns=@JoinColumn(name="id_caracteristica"))
-    private List <Caracteristica> attributes;
-
+    private List <Caracteristica> attributes;*/
 
     public Producto() {
     }
