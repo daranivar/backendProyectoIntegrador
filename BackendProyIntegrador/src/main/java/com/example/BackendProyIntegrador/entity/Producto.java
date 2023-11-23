@@ -18,6 +18,7 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private String imagen;
+    private String precio;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Categoria categoria;
@@ -37,17 +38,21 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(Long id, String nombre, String descripcion) {
+    public Producto(Long id, String nombre, String descripcion, String imagen, String precio, Categoria categoria) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-
+        this.imagen = imagen;
+        this.precio = precio;
+        this.categoria = categoria;
     }
 
-    public Producto(String nombre, String descripcion) {
+    public Producto(String nombre, String descripcion, String imagen, String precio, Categoria categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-
+        this.imagen = imagen;
+        this.precio = precio;
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -89,4 +94,28 @@ public class Producto {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }*/
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<Caracteristica> getCaracteristicas() {
+        return caracteristicas;
+    }
+
+    public void setCaracteristicas(Set<Caracteristica> caracteristicas) {
+        this.caracteristicas = caracteristicas;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
 }

@@ -10,28 +10,26 @@ public class ProductoDTO {
 
     private String imagen;
 
-    public String getImagen() {
-        return imagen;
-    }
+    private String precio;
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
+
 
     public ProductoDTO() {
     }
 
-    public ProductoDTO(String nombre, String descripcion, String imagen) {
+    public ProductoDTO(String nombre, String descripcion, String imagen, String precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
+        this.precio = precio;
     }
 
-    public ProductoDTO(Long id, String nombre, String descripcion, String imagen) {
+    public ProductoDTO(Long id, String nombre, String descripcion, String imagen, String precio) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
+        this.precio = precio;
     }
 
     public Long getId() {
@@ -56,5 +54,20 @@ public class ProductoDTO {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
 }

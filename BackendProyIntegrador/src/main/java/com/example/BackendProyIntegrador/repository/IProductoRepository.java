@@ -12,7 +12,7 @@ import java.util.List;
 public interface IProductoRepository extends JpaRepository <Producto, Long>{
     @Query("SELECT p FROM Producto p JOIN p.categoria ca WHERE ca.nombre LIKE CONCAT ('%',:categoria,'%')")
     List<ProductoDTO> buscarPorCategoria(String categoria);
-    @Query(value = "SELECT p.id,p.nombre,p.descripcion,p.imagen FROM productos p", nativeQuery = true)
+    @Query(value = "SELECT p.id,p.nombre,p.descripcion,p.imagen,p.precio FROM productos p", nativeQuery = true)
     List<ProductoDTO> listarProductosFinal();
     @Query("SELECT p FROM Producto p WHERE p.id = :id")
     ProductoDTO buscarProductoPorId(Long id);
