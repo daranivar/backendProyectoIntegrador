@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/productos")
@@ -69,6 +70,33 @@ public class ProductoController {
         productoService.actualizar(producto);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
+    @PatchMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizarProductoParcial(@PathVariable Long id, @RequestBody Map<String, Object> producto){
+      ProductoDTO productoExistente = productoService.buscarProductoPorId(id);
+              for (Map.Entry<String, Object> entry : producto.entrySet()){
+                  String campo = entry.getKey();
+                  Object valor = entry.getValue();
+                  switch (campo){
+                      case "nombre":
+                          productoExistente.setNombre((String) valor);
+                          break;
+                      case "descripcion":
+                          productoExistente.setDescripcion((String) valor);
+                          break;
+                      case "imagen":
+                          productoExistente.setImagen((String) valor);
+                          break;
+                      case "precio":
+                          productoExistente.setPrecio((String) valor);
+                          break;
+                  }
+              }
+        productoService.guardar(productoExistente);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, @ModelAttribute ProductoDTO producto){

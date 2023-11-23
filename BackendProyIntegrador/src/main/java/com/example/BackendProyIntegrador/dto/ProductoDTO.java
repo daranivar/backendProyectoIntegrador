@@ -1,5 +1,11 @@
 package com.example.BackendProyIntegrador.dto;
 
+import com.example.BackendProyIntegrador.entity.Caracteristica;
+import com.example.BackendProyIntegrador.entity.Categoria;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class ProductoDTO {
 
     private Long id;
@@ -12,24 +18,29 @@ public class ProductoDTO {
 
     private String precio;
 
+    private Categoria categoria;
 
-
+    private Set<Caracteristica> caracteristicas = new HashSet<Caracteristica>();
     public ProductoDTO() {
     }
 
-    public ProductoDTO(String nombre, String descripcion, String imagen, String precio) {
+    public ProductoDTO(String nombre, String descripcion, String imagen, String precio, Categoria categoria, Set<Caracteristica> caracteristicas) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.precio = precio;
+        this.categoria = categoria;
+        this.caracteristicas = caracteristicas;
     }
 
-    public ProductoDTO(Long id, String nombre, String descripcion, String imagen, String precio) {
+    public ProductoDTO(Long id, String nombre, String descripcion, String imagen, String precio, Categoria categoria, Set<Caracteristica> caracteristicas) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.precio = precio;
+        this.categoria = categoria;
+        this.caracteristicas = caracteristicas;
     }
 
     public Long getId() {
@@ -69,5 +80,21 @@ public class ProductoDTO {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<Caracteristica> getCaracteristicas() {
+        return caracteristicas;
+    }
+
+    public void setCaracteristicas(Set<Caracteristica> caracteristicas) {
+        this.caracteristicas = caracteristicas;
     }
 }
