@@ -14,10 +14,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-
 @RequestMapping("/categorias")
 public class CategoriaController {
 
@@ -62,7 +62,7 @@ public class CategoriaController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @PostMapping("/upload")
+   /* @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, @ModelAttribute CategoriaDTO categoria){
         awsService.uploadFile(file);
         String fileName = file.getOriginalFilename();
@@ -70,10 +70,33 @@ public class CategoriaController {
         String response = "El archivo" + file.getOriginalFilename() + " fue cargado correctamente a S3 ";
         categoria.setUrlimagen(fileUrl);
         categoriaService.guardar(categoria);
-
-
-
         return new ResponseEntity<String>(response,HttpStatus.OK);
+    }*/
 
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadFiles(
+            @RequestPart("categoria") CategoriaDTO categoria,
+            @RequestPart("files") List<MultipartFile> files
+    ) {
+        if (files != null && !files.isEmpty()) {
+            List<String> fileUrls = new ArrayList<>();
+
+            for (MultipartFile file : files) {
+                awsService.uploadFile(file);
+
+                String fileName = file.getOriginalFilename();
+                String fileUrl = amazonS3.getUrl(bucketName, fileName).toString();
+                fileUrls.add(fileUrl);
+            }
+
+            categoria.setUrlsImagenes(fileUrls);
+            categoriaService.guardar(categoria);
+
+            String response = "Los archivos y datos fueron cargados correctamente a S3";
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            String response = "No se proporcionaron archivos para cargar";
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
     }
 }

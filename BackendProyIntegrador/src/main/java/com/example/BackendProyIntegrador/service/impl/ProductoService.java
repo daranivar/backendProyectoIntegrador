@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -64,6 +65,16 @@ public class ProductoService implements IProductoService {
     public ProductoDTO buscarProductoPorId(Long id) {
         return iProductoRepository.buscarProductoPorId(id);
     }
+
+    @Override
+    public List<ProductoDTO> buscarPorFechasDisponibles(LocalDate fechaInicioReserva, LocalDate fechafinReserva) {
+        return iProductoRepository.buscarPorFechasDisponibles(fechaInicioReserva,fechafinReserva);
+    }
+
+   /* @Override
+    public ProductoDTO buscarPorFechasDisponiblesPorId(Long id, LocalDate fechaInicioReserva, LocalDate fechafinReserva) {
+        return iProductoRepository.buscarPorFechasDisponiblesPorId(id,fechaInicioReserva,fechafinReserva);
+    }*/
 
     @Override
     public List<ProductoDTO> buscarPorCategoria(String categoria) {

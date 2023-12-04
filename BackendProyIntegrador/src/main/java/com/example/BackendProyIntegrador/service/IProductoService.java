@@ -2,6 +2,7 @@ package com.example.BackendProyIntegrador.service;
 
 import com.example.BackendProyIntegrador.dto.ProductoDTO;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IProductoService {
@@ -21,6 +22,12 @@ public interface IProductoService {
     List<ProductoDTO> listarProductosFinal();
 
     ProductoDTO buscarProductoPorId(Long id);
+
+
+    List<ProductoDTO> buscarPorFechasDisponibles(LocalDate fechaInicioReserva, LocalDate fechafinReserva);
+
+    /*ProductoDTO buscarPorFechasDisponiblesPorId(Long id,LocalDate fechaInicioReserva, LocalDate fechafinReserva);*/
+
 
 
 }

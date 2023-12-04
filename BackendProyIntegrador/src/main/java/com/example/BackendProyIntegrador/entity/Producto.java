@@ -1,9 +1,11 @@
 package com.example.BackendProyIntegrador.entity;
 
 
+import com.example.BackendProyIntegrador.dto.ReservaDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +28,9 @@ public class Producto {
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<Caracteristica> caracteristicas = new HashSet<Caracteristica>();
 
+    @OneToMany
+    private List<Reserva> reservas = new ArrayList<Reserva>();
+
     /*@OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)
     //@JsonIgnore
     private List<Image> image;*/
@@ -34,6 +39,9 @@ public class Producto {
     @JoinTable(name="producto_caracteristica", joinColumns=@JoinColumn(name="id_producto"),
             inverseJoinColumns=@JoinColumn(name="id_caracteristica"))
     private List <Caracteristica> attributes;*/
+
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<ProductImage> productImages;
 
     public Producto() {
     }
@@ -117,5 +125,21 @@ public class Producto {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+
+    public Set<ProductImage> getProductImages() {
+        return productImages;
+    }
+
+    public void setProductImages(Set<ProductImage> productImages) {
+        this.productImages = productImages;
     }
 }

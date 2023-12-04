@@ -1,5 +1,7 @@
 package com.example.BackendProyIntegrador.dto;
 
+import java.util.List;
+
 public class CategoriaDTO {
 
     private Long id;
@@ -8,20 +10,24 @@ public class CategoriaDTO {
     private String descripcion;
     private String urlimagen;
 
+    private List<String> urlsImagenes;
+
     public CategoriaDTO() {
     }
 
-    public CategoriaDTO(String nombre, String descripcion, String urlimagen) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.urlimagen = urlimagen;
-    }
-
-    public CategoriaDTO(Long id, String nombre, String descripcion, String urlimagen) {
+    public CategoriaDTO(Long id, String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.urlimagen = urlimagen;
+        this.urlsImagenes = urlsImagenes;
+    }
+
+    public CategoriaDTO(String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.urlimagen = urlimagen;
+        this.urlsImagenes = urlsImagenes;
     }
 
     public Long getId() {
@@ -54,5 +60,13 @@ public class CategoriaDTO {
 
     public void setUrlimagen(String urlimagen) {
         this.urlimagen = urlimagen;
+    }
+
+    public List<String> getUrlsImagenes() {
+        return urlsImagenes;
+    }
+
+    public void setUrlsImagenes(List<String> urlsImagenes) {
+        this.urlsImagenes = urlsImagenes;
     }
 }

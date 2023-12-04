@@ -2,8 +2,6 @@ package com.example.BackendProyIntegrador.controller;
 import org.apache.log4j.Logger;
 import com.amazonaws.services.s3.AmazonS3;
 import com.example.BackendProyIntegrador.dto.ProductoDTO;
-import com.example.BackendProyIntegrador.entity.Producto;
-import com.example.BackendProyIntegrador.repository.IImageRepository;
 import com.example.BackendProyIntegrador.service.impl.AWSService;
 import com.example.BackendProyIntegrador.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +32,6 @@ public class ProductoController {
     private Categoria categoria;*/
 
 
-
-    @Autowired
-    IImageRepository iImageRepository;
 
     @Autowired
     IProductoService productoService;

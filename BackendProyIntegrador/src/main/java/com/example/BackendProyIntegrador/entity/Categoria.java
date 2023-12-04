@@ -1,6 +1,7 @@
 package com.example.BackendProyIntegrador.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="categorias")
@@ -12,21 +13,26 @@ public class Categoria {
     private String nombre;
     private String descripcion;
     private String urlimagen;
+    @ElementCollection
+    private List<String> urlsImagenes;
+
 
     public Categoria() {
     }
 
-    public Categoria(Long id, String nombre, String descripcion, String urlimagen) {
+    public Categoria(Long id, String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.urlimagen = urlimagen;
+        this.urlsImagenes = urlsImagenes;
     }
 
-    public Categoria(String nombre, String descripcion, String urlimagen) {
+    public Categoria(String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.urlimagen = urlimagen;
+        this.urlsImagenes = urlsImagenes;
     }
 
     public Long getId() {
@@ -59,5 +65,13 @@ public class Categoria {
 
     public void setUrlimagen(String urlimagen) {
         this.urlimagen = urlimagen;
+    }
+
+    public List<String> getUrlsImagenes() {
+        return urlsImagenes;
+    }
+
+    public void setUrlsImagenes(List<String> urlsImagenes) {
+        this.urlsImagenes = urlsImagenes;
     }
 }
