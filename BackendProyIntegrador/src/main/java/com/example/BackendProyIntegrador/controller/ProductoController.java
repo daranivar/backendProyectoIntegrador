@@ -92,8 +92,7 @@ public class ProductoController {
     }
 
 
-
-    @PostMapping("/upload")
+   /* @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, @ModelAttribute ProductoDTO producto){
         //productoService.guardar(producto);
         awsService.uploadFile(file);
@@ -109,7 +108,7 @@ public class ProductoController {
        productoService.guardar(producto);
        return new ResponseEntity<String>(response,HttpStatus.OK);
     }
-
+*/
     /*ENDPOINT DE BUSQUEDAS QUERY*/
 
     @GetMapping("/query/{id}")

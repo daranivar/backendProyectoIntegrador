@@ -62,7 +62,7 @@ public class CategoriaController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-   /* @PostMapping("/upload")
+    @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestPart(value = "file") MultipartFile file, @ModelAttribute CategoriaDTO categoria){
         awsService.uploadFile(file);
         String fileName = file.getOriginalFilename();
@@ -71,9 +71,9 @@ public class CategoriaController {
         categoria.setUrlimagen(fileUrl);
         categoriaService.guardar(categoria);
         return new ResponseEntity<String>(response,HttpStatus.OK);
-    }*/
+    }
 
-    @PostMapping("/upload")
+  /*  @PostMapping("/upload")
     public ResponseEntity<String> uploadFiles(
             @RequestPart("categoria") CategoriaDTO categoria,
             @RequestPart("files") List<MultipartFile> files
@@ -98,5 +98,5 @@ public class CategoriaController {
             String response = "No se proporcionaron archivos para cargar";
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
-    }
+    }*/
 }

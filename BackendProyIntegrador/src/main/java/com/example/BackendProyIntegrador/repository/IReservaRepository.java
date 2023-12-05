@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface IReservaRepository extends JpaRepository<Reserva, Long> {
-  /*  @Query("SELECT r FROM Reserva r JOIN r.app_user_id u WHERE u.id = (:id)")
+   /* @Query("SELECT r FROM Reservas r JOIN r.appUser a WHERE a.id = (:id)")
     List<ReservaDTO> listarReservasPorIdUsuario(Long id);*/
 
 }

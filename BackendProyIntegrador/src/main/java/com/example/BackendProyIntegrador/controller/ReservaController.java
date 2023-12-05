@@ -33,7 +33,7 @@ public class ReservaController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Reserva creada exitosamente");
     }
 
-/*    @PostMapping("/actualizar/{id}")
+    @PostMapping("/actualizar/{id}")
     public ResponseEntity<ProductoDTO> crearReserva(@PathVariable Long id, @RequestBody ReservaDTO reserva) throws Exception {
         ProductoDTO producto = productoService.buscarProductoPorId(id);
         if(productoService.buscarPorFechasDisponiblesPorId(id,reserva.getFechaInicioReserva(),reserva.getFechafinReserva()).getId().equals(id)){
@@ -46,7 +46,7 @@ public class ReservaController {
         else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-    }*/
+    }
 
     @GetMapping("/todos")
     public List<ReservaDTO> listarReservas(){

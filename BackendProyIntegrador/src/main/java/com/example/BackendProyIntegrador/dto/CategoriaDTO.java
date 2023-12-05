@@ -10,24 +10,24 @@ public class CategoriaDTO {
     private String descripcion;
     private String urlimagen;
 
-    private List<String> urlsImagenes;
+ /*   private List<String> urlsImagenes;*/
 
     public CategoriaDTO() {
     }
 
-    public CategoriaDTO(Long id, String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
+    public CategoriaDTO(Long id, String nombre, String descripcion, String urlimagen /*List<String> urlsImagenes*/) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.urlimagen = urlimagen;
-        this.urlsImagenes = urlsImagenes;
+        /*this.urlsImagenes = urlsImagenes;*/
     }
 
-    public CategoriaDTO(String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
+    public CategoriaDTO(String nombre, String descripcion, String urlimagen/* List<String> urlsImagenes*/) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.urlimagen = urlimagen;
-        this.urlsImagenes = urlsImagenes;
+        /*this.urlsImagenes = urlsImagenes;*/
     }
 
     public Long getId() {
@@ -62,11 +62,11 @@ public class CategoriaDTO {
         this.urlimagen = urlimagen;
     }
 
-    public List<String> getUrlsImagenes() {
+   /* public List<String> getUrlsImagenes() {
         return urlsImagenes;
     }
 
     public void setUrlsImagenes(List<String> urlsImagenes) {
         this.urlsImagenes = urlsImagenes;
-    }
+    }*/
 }

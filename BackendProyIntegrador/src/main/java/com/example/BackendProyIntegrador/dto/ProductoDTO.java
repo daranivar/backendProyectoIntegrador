@@ -2,8 +2,7 @@ package com.example.BackendProyIntegrador.dto;
 
 import com.example.BackendProyIntegrador.entity.Caracteristica;
 import com.example.BackendProyIntegrador.entity.Categoria;
-import com.example.BackendProyIntegrador.entity.ProductImage;
-import com.example.BackendProyIntegrador.entity.Reserva;
+import com.example.BackendProyIntegrador.entity.Imagen;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -28,7 +27,9 @@ public class ProductoDTO {
 
     private List<ReservaDTO> reservas = new ArrayList<ReservaDTO>();
 
-    private Set<ProductImage> productImages;
+    private List<Imagen> imagenes = new ArrayList<Imagen>();
+
+
     public ProductoDTO() {
     }
 
@@ -81,7 +82,6 @@ public class ProductoDTO {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-
     public String getPrecio() {
         return precio;
     }
@@ -114,11 +114,11 @@ public class ProductoDTO {
         this.reservas = reservas;
     }
 
-    public Set<ProductImage> getProductImages() {
-        return productImages;
+    public List<Imagen> getImagenes() {
+        return imagenes;
     }
 
-    public void setProductImages(Set<ProductImage> productImages) {
-        this.productImages = productImages;
+    public void setImagenes(List<Imagen> imagenes) {
+        this.imagenes = imagenes;
     }
 }

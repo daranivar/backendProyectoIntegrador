@@ -3,13 +3,20 @@ package com.example.BackendProyIntegrador.entity;
 
 import com.example.BackendProyIntegrador.dto.ReservaDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name="productos")
 public class Producto {
@@ -31,6 +38,9 @@ public class Producto {
     @OneToMany
     private List<Reserva> reservas = new ArrayList<Reserva>();
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Imagen> imagenes = new ArrayList<Imagen>();
+
     /*@OneToMany (mappedBy = "producto", cascade = CascadeType.ALL)
     //@JsonIgnore
     private List<Image> image;*/
@@ -40,11 +50,10 @@ public class Producto {
             inverseJoinColumns=@JoinColumn(name="id_caracteristica"))
     private List <Caracteristica> attributes;*/
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ProductImage> productImages;
+   /* @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<ProductImage> productImages;*/
 
-    public Producto() {
-    }
+
 
     public Producto(Long id, String nombre, String descripcion, String imagen, String precio, Categoria categoria) {
         this.id = id;
@@ -135,11 +144,8 @@ public class Producto {
         this.reservas = reservas;
     }
 
-    public Set<ProductImage> getProductImages() {
-        return productImages;
-    }
 
-    public void setProductImages(Set<ProductImage> productImages) {
-        this.productImages = productImages;
-    }
 }
+/*
+@NoArgsConstructor
+@AllArgsConstructor*/

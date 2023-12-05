@@ -71,10 +71,10 @@ public class ProductoService implements IProductoService {
         return iProductoRepository.buscarPorFechasDisponibles(fechaInicioReserva,fechafinReserva);
     }
 
-   /* @Override
+    @Override
     public ProductoDTO buscarPorFechasDisponiblesPorId(Long id, LocalDate fechaInicioReserva, LocalDate fechafinReserva) {
         return iProductoRepository.buscarPorFechasDisponiblesPorId(id,fechaInicioReserva,fechafinReserva);
-    }*/
+    }
 
     @Override
     public List<ProductoDTO> buscarPorCategoria(String categoria) {

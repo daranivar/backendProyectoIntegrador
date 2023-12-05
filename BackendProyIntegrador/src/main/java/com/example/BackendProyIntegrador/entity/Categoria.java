@@ -13,26 +13,24 @@ public class Categoria {
     private String nombre;
     private String descripcion;
     private String urlimagen;
-    @ElementCollection
-    private List<String> urlsImagenes;
 
 
     public Categoria() {
     }
 
-    public Categoria(Long id, String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
+    public Categoria(Long id, String nombre, String descripcion, String urlimagen) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.urlimagen = urlimagen;
-        this.urlsImagenes = urlsImagenes;
+
     }
 
-    public Categoria(String nombre, String descripcion, String urlimagen, List<String> urlsImagenes) {
+    public Categoria(String nombre, String descripcion, String urlimagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.urlimagen = urlimagen;
-        this.urlsImagenes = urlsImagenes;
+
     }
 
     public Long getId() {
@@ -67,11 +65,5 @@ public class Categoria {
         this.urlimagen = urlimagen;
     }
 
-    public List<String> getUrlsImagenes() {
-        return urlsImagenes;
-    }
 
-    public void setUrlsImagenes(List<String> urlsImagenes) {
-        this.urlsImagenes = urlsImagenes;
-    }
 }
