@@ -81,12 +81,14 @@ public class ProductoService implements IProductoService {
         return iProductoRepository.buscarPorCategoria(categoria);
     }
 
-
     @Override
     public List<ProductoDTO> listarProductosFinal() {
         return iProductoRepository.listarProductosFinal();
     }
-
+    @Override
+    public List<ProductoDTO> buscarProductos(String producto) {
+        return iProductoRepository.buscarProductos(producto);
+    }
 
 }
 

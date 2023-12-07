@@ -137,4 +137,14 @@ public class ProductoController {
         return productoService.listarProductosFinal();
     }
 
+    @GetMapping("/query/buscarproducto")
+    public ResponseEntity<List<ProductoDTO>> buscarProductos(@RequestParam("producto") String producto){
+        if(!productoService.buscarProductos(producto).isEmpty()){
+            return ResponseEntity.ok(productoService.buscarProductos(producto));
+        } else {
+            logger.error("Los productos consultados no se encuentran");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
 }

@@ -23,11 +23,9 @@ public interface IProductoService {
 
     ProductoDTO buscarProductoPorId(Long id);
 
-
     List<ProductoDTO> buscarPorFechasDisponibles(LocalDate fechaInicioReserva, LocalDate fechafinReserva);
 
     ProductoDTO buscarPorFechasDisponiblesPorId(Long id,LocalDate fechaInicioReserva, LocalDate fechafinReserva);
-
-
+    List<ProductoDTO> buscarProductos(String producto);
 
 }

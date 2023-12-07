@@ -21,5 +21,6 @@ public interface IProductoRepository extends JpaRepository <Producto, Long>{
     List<ProductoDTO> buscarPorFechasDisponibles(LocalDate fechaInicioReserva, LocalDate fechafinReserva);
     @Query("SELECT p FROM Producto p JOIN p.reservas r WHERE p.id = :id AND r.fechaInicioReserva NOT BETWEEN :fechaInicioReserva AND :fechafinReserva AND r.fechafinReserva NOT BETWEEN :fechaInicioReserva AND :fechafinReserva")
     ProductoDTO buscarPorFechasDisponiblesPorId(Long id,LocalDate fechaInicioReserva, LocalDate fechafinReserva);
-
+    @Query("SELECT p FROM Producto p where concat(p.id,' ',p.nombre,' ',p.descripcion,' ',p.imagen,' ',p.precio) like %?1%")
+    List<ProductoDTO> buscarProductos(String producto);
 }
